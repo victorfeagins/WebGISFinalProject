@@ -14,6 +14,28 @@ hd1 = hd[["UNITID",'INSTNM','CITY','LONGITUD',"LATITUDE",
 
 hd2 = hd1.loc[(hd1["GROFFER"] == 1) & (hd1["CYACTIVE"] == 1)] #Only interested in Active Graduate Schools
 
+#Fixing Website variable all variables need https://
+def httpscorrector(vector):
+    """
+    Parameters
+    ----------
+    vector : string itrrable
+
+    Returns
+    -------
+    corrected : list
+        string list that contains all the vector but with https:// in it
+
+    """
+    corrected = []
+    for i in vector:
+        if "https://" not in i:
+            corrected.append("https://" + i) #Adds https:// to each string
+        else:
+            corrected.append(i)
+    return corrected
+hd2["WEBADDR"] = httpscorrector(hd2["WEBADDR"])
+
 key = np.array(hd2["UNITID"]) #Schools of interest
 
 #%% School Cost Info
