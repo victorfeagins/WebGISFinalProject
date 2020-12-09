@@ -34,15 +34,15 @@ effy3 = effy2[["UNITID","EFFYLEV",'EFYTOTLT',"EFYTOTLM","EFYTOTLW",
               'EFYASIAT',"EFYBKAAT","EFYHISPT"]]
 
 #Calculate Demographic Percentages
-effy3["Percent_Male"] = effy3["EFYTOTLM"]/effy3["EFYTOTLT"]*100 #Calculating Percent Male
+effy3["Percent_Male"] = np.round(effy3["EFYTOTLM"]/effy3["EFYTOTLT"]*100) #Calculating Percent Male
 
-effy3["Percent_Female"] = effy3["EFYTOTLW"]/effy3["EFYTOTLT"]*100 #Calculating Percent Female
+effy3["Percent_Female"] = np.round(effy3["EFYTOTLW"]/effy3["EFYTOTLT"]*100) #Calculating Percent Female
 
-effy3["Percent_Asian"] = effy3["EFYASIAT"]/effy3["EFYTOTLT"]*100 #Calculating Percent Asian
+effy3["Percent_Asian"] = np.round(effy3["EFYASIAT"]/effy3["EFYTOTLT"]*100) #Calculating Percent Asian
 
-effy3["Percent_Black"] = effy3["EFYBKAAT"]/effy3["EFYTOTLT"]*100 #Calculating Percent Black
+effy3["Percent_Black"] = np.round(effy3["EFYBKAAT"]/effy3["EFYTOTLT"]*100) #Calculating Percent Black
 
-effy3["Percent_Hispanic"] = effy3["EFYHISPT"]/effy3["EFYTOTLT"]*100 #Calculating Percent Hispanic
+effy3["Percent_Hispanic"] = np.round(effy3["EFYHISPT"]/effy3["EFYTOTLT"]*100) #Calculating Percent Hispanic
 
 #%% Graduation Infomation
 gr = pd.read_csv("gr200_19.csv")
